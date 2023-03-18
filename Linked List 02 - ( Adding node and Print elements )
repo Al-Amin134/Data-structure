@@ -1,0 +1,58 @@
+#include<bits/stdc++.h>
+using namespace std;
+struct node
+{
+    int info;
+    struct node *next;
+};
+typedef struct node *nodeptr;
+
+main()
+{
+
+    int i,n,value;
+    
+    nodeptr start = NULL, ptr = NULL;
+    
+    cout<<"Enter a negative number to terminate the programme"<<endl;
+    
+    cin>>value;
+    
+    nodeptr getnode(void);
+    
+    if(value>=1)
+    {
+
+        start = getnode();
+        ptr = start;
+        ptr->info = value;
+
+    }
+    while(value>=0)
+    {
+
+        cin>>value;
+        if(value>=0)
+        {
+            ptr->next = getnode();
+            ptr =ptr->next;
+            ptr->info = value;
+        }
+    }
+    ptr = start;
+    while(ptr!=NULL)
+    {
+        cout<<ptr->info<<endl;
+        ptr = ptr->next;
+
+    }
+
+    return 0;
+}
+nodeptr getnode(void)
+{
+
+    nodeptr p = (nodeptr)malloc(sizeof(struct node));
+    p-> next = NULL;
+    return p;
+}
