@@ -1,0 +1,30 @@
+#include<bits/stdc++.h>
+using namespace std;
+typedef struct node Node;
+struct node{
+
+    int data;
+    Node *ptr;
+
+};
+
+Node *create_node(int item, Node *next){
+
+        Node *new_node = (Node*)malloc (sizeof(Node));
+        if(new_node==NULL){
+            cout<<"error! node could not create"<<endl;
+            exit(1);
+        }
+        new_node->data = item;
+        new_node->ptr = next;
+        return new_node;
+
+}
+int main()
+{
+
+    Node*n;
+    n = create_node(1990,NULL);
+    cout<<"Your data is "<<n->data;
+}
+//output: 1990
